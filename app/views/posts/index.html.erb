@@ -1,8 +1,10 @@
 <h1>Posts</h1>
 <% if !@posts.empty? %>
 	<% @posts.each do |post| %>
-		<p><%= link_to post.title, post %></p>
+		<h3><%= link_to post.title, post %></h3>
 	<% end %>
 <% else %>
 	<p>Whoops! It looks like there aren't any posts to display.</p>
 <% end %>
+
+<%= link_to 'New Post', new_post_path %>

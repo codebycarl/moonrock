@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   	@post = Post.new(post_params)
 
   	if @post.save
-  		redirect_to @post
+  		redirect_to posts_path
   	else
   		render 'new'
   	end
@@ -26,9 +26,17 @@ class PostsController < ApplicationController
   end
 
   def update
+  	if @post.update
+  		redirect_to @post
+  	else
+  		render 'edit'
+  	end
   end
 
   def destroy
+  	if @post.destroy
+  		redirect_to posts_path
+  	end
   end
 
   private
