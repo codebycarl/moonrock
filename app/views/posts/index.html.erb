@@ -1,4 +1,4 @@
-<h1 >Posts</h1>
+<h1 class='post-heading d-block'>Posts</h1>
 <% if !@posts.empty? %>
 	<!-- If posts are available... -->
 	<ul class='list-group'>
@@ -13,4 +13,4 @@
 	<p>Whoops! It looks like there aren't any posts to display.</p>
 <% end %>
 <br>
-<%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
+<%= link_to 'New Post', new_post_path, class: 'btn btn-primary btn-block' %>
