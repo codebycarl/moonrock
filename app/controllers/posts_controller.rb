@@ -13,8 +13,10 @@ class PostsController < ApplicationController
   	@post = Post.new(post_params)
     
   	if @post.save
+      flash[:success] = 'Post created successfully'
   		redirect_to posts_path
   	else
+      flash.now[:alert] = @post.errors.full_messages.to_sentence
   		render 'new'
   	end
   end
@@ -27,14 +29,17 @@ class PostsController < ApplicationController
 
   def update
   	if @post.update(post_params)
+      flash[:notice] = 'Post updated successfully'
   		redirect_to @post
   	else
+      flash.now[:alert] = @post.errors.full_messages.to_sentence
   		render 'edit'
   	end
   end
 
   def destroy
   	if @post.destroy
+      flash[:notice] = 'Post deleted successfully'
   		redirect_to posts_path
   	end
   end
