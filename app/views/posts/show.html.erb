@@ -3,7 +3,12 @@
 		<div class='card-header'>
 			<h5><%= @post.title %></h5>
 		</div>
-		<p class='card-body'><%= @post.description %></p>
+		<p class='card-body'>
+			<% if @post.photo.attached? %>
+				<%= image_tag @post.photo, class: 'mx-auto d-block rounded',style: 'width: 100%' %>
+			<% end %>
+			<%= @post.description %>
+		</p>
 		<div class='card-footer'>
 			<%= link_to 'Back', posts_path, class: 'btn btn-link' %>
 			<%= link_to 'Edit', edit_post_path, class: 'btn btn-link' %>
